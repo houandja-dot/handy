@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--(logos des langages) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<!-- (icônes téléphone, WhatsApp, etc.) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="shortcut icon" href="img/logohand-2.png" type="image/x-icon">
+
+  <title>Handydev - Développeur Web</title>
+  <style>
+    /* ---- RESET ---- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 19px;
+    }
+
+    body {
+      font-family:fantasy;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    /* Animation pour les liens du menu */
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::after {
+  content:inherit;
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transition: left 0.3s ease;
+}
+
+nav a:hover::after {
+  left: 0;
+}
+
+/* Animation douce sur les boutons (projets, contact, etc.) */
+button, .projects a {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+    /* ---- HEADER ---- */
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    nav {
+      margin-top: 2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #070707;
+    }
+
+    /* ---- SECTIONS ---- */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: #2a5298;
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #fcf7f7;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    
+    /* Animation du header */
+header h1, 
+header p {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1s ease-out;
+}
+
+   
+
+    /* ---- CONTACT ---- */
+    #contact p {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+    #contact a {
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #1e3c72;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    
+    .logo:hover{
+      width: 250px; 
+      transition:0.5s ease;
+    }
+    /* Logo + texte côte à côte */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centre horizontalement */
+  gap: 20px; /* espace entre logo et texte */
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+ border-radius: 10px;
+}
+
+.header-text h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-text p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+/* ---- RESPONSIVE ---- */
+
+/* Tablettes (max 1024px) */
+@media (max-width: 1024px) {
+  header {
+    padding: 3rem 1.5rem;
+  }
+
+  .header-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-text p {
+    font-size: 1rem;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 3rem 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Smartphones (max 768px) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    background: #1e3c72;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    max-height: 0;                    /* caché au départ */
+    transition: max-height 0.45s ease, padding 0.3s ease;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  nav a {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1rem;
+    color: #fff;
+  }
+
+  /* Valeur max-height plus grande pour contenir tous les liens */
+  nav.active {
+    max-height: 500px;                /* ajuste si tu as plus de liens */
+    padding: 1rem 0;
+  }
+}
+
+
+/* Très petits écrans (max 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px; /* réduire la taille globale */
+  }
+
+  .header-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .header-text p {
+    font-size: 0.85rem;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+
+  p, li {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+}
+/* --- MENU BURGER --- */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+/* cacher le menu sur mobile par défaut */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    background: #1e3c72;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    z-index: 1000;
+  }
+
+  nav a {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
+
+  nav.active {
+   max-height: 300px;
+   transition: max-height 0.5s ease-in;
+  
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+    
+  </style>
+</head>
+<body>
+  <!-- Accueil -->
+   <header>
+  <div class="header-top">
+    <img src="img/logohand-2.png" alt="Handydev Logo" class="logo">
+    <div class="header-text">
+      <h1>👨‍💻 HOUANDJA Kodjo Jean-Marie Vianney</h1>
+      <p id="slogan">Développeur Web | Créateur d’expériences digitales</p>
+    </div>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">
+  <i class="fas fa-bars"></i>
+</div>
+
+  <nav id="nav">
+    <a href="#about">À propos</a>
+    <a href="#skills">Compétences</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+  <!-- A propos -->
+  <section id="about">
+    <h2>À propos</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      Passionné par le développement web, j’aime concevoir des sites modernes et performants.
+      Mon objectif est de transformer des idées en solutions élégantes et efficaces.Il est 
+      effectivement trés privilègié pour tout entrepreneur(e)s ,
+       e-commerçant(e)s.... d'avoir leurs propres sites et ainsi 
+      interagir avec le monde plus éfficacement
+    </p>
+  </section>
+
+  <!-- Compétences -->
+  <section id="skills">
+  <h2>Compétences</h2>
+  <div class="skills">
+    <div class="card">
+      <i class="devicon-javascript-plain colored" style="font-size:60px;"></i>
+      <p>JavaScript</p>
+    </div>
+    <div class="card">
+      <i class="devicon-css3-plain colored" style="font-size:60px;"></i>
+      <p>CSS3</p>
+    </div>
+    <div class="card">
+   <i class="devicon-html5-plain colored" style="font-size:60px;"></i>
+   <p>HTML5</p>
+    </div>
+    <div class="card">
+   <i class="devicon-python-plain colored" style="font-size:60px;"></i>
+   <p>Python(...en cours)</p>
+   </div>
+   <div class="card">
+   <i class="devicon-php-plain colored" style="font-size:60px;"></i>
+   <p>php(...en cours)</p>
+   </div>
+  </div>
+</section>
+
+
+  <!-- services -->
+  <section id="services">
+  <h2> services</h2>
+  <p style="text-align:center; max-width:700px; margin:auto;">
+    En tant que développeur web débutant, je propose mes compétences pour donner vie à vos idées numériques.  
+    Mon objectif est de créer des sites simples, modernes et efficaces, tout en continuant à développer mes connaissances.  
+    Voici ce que je peux déjà vous offrir :
+  </p>
+  <ul style="max-width:700px; margin:2rem auto; line-height:1.8;">
+    <li>🌐 Création de sites vitrines modernes (HTML, CSS, JavaScript)</li>
+    <li>📱 Intégration responsive (adapté aux ordinateurs, tablettes et mobiles)</li>
+    <li>🎨 Personnalisation de design à partir de modèles existants</li>
+    <li>⚙️ Ajout de fonctionnalités simples (formulaires de contact, galeries, etc.)</li>
+    <li>🚀 Motivation et apprentissage rapide pour m’adapter à vos besoins</li>
+  </ul>
+</section>
+
+
+    
+    
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email : <a href="mailto:v83161033@gmail.com">infoHandydev@gmail.com</a></p>
+    <p> 📞 télephone : +228 90 69 97 95
+  </p>
+  <p><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> WhatsApp: <a href="https://wa.me/22890699795" target="about_blank">+228 90 69 97 95</a></p>
+    
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 HOUANDJA Kodjo Jean-Marie Vianney - Portfolio</p>
+  </footer>
+</body>
+<script>
+
+window.addEventListener("load", () => {
+  const slogan = document.getElementById("slogan");
+  const text = slogan.textContent;
+  slogan.textContent = ""; 
+
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      slogan.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 80); 
+    }
+  }
+  typeEffect();
+});
+// --- Smooth Scroll ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+
+const backToTop = document.createElement("button");
+backToTop.textContent = "⬆";
+backToTop.style.position = "fixed";
+backToTop.style.bottom = "20px";
+backToTop.style.right = "20px";
+backToTop.style.padding = "10px 15px";
+backToTop.style.fontSize = "20px";
+backToTop.style.borderRadius = "50%";
+backToTop.style.border = "none";
+backToTop.style.background = "#2a5298";
+backToTop.style.color = "#fff";
+backToTop.style.cursor = "pointer";
+backToTop.style.display = "none";
+backToTop.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
+document.body.appendChild(backToTop);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// --- Animation au Scroll ---
+const sections = document.querySelectorAll("section, .card");
+const revealSection = () => {
+  sections.forEach(sec => {
+    const position = sec.getBoundingClientRect().top;
+    if (position < window.innerHeight - 100) {
+      sec.style.opacity = 1;
+      sec.style.transform = "translateY(0)";
+    }
+  });
+};
+
+sections.forEach(sec => {
+  sec.style.opacity = 0;
+  sec.style.transform = "translateY(40px)";
+  sec.style.transition = "all 0.8s ease-out";
+});
+
+window.addEventListener("scroll", revealSection);
+revealSection();
+
+// Effet vibration sur les icônes de contact
+document.querySelectorAll("#contact i").forEach(icon => {
+  icon.addEventListener("mouseenter", () => {
+    icon.style.transition = "transform 0.2s";
+    icon.style.transform = "scale(1.2) rotate(5deg)";
+  });
+  icon.addEventListener("mouseleave", () => {
+    icon.style.transform = "scale(1) rotate(0)";
+  });
+});
+
+// Effet d'apparition du header au chargement
+window.addEventListener("load", () => {
+  document.querySelector("header h1").style.opacity = 1;
+  document.querySelector("header h1").style.transform = "translateY(0)";
+  
+  setTimeout(() => {
+    document.querySelector("header p").style.opacity = 1;
+    document.querySelector("header p").style.transform = "translateY(0)";
+  }, 500);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+
+  if (!menuToggle || !nav) return; // sécurité
+
+  const icon = menuToggle.querySelector("i"); // si tu utilises FontAwesome
+
+  menuToggle.addEventListener("click", () => {
+    // toggle du menu
+    nav.classList.toggle("active");
+
+    // toggle de l'icône FontAwesome si présente
+    if (icon) {
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-times");
+    } else {
+      // fallback texte (rare)
+      menuToggle.textContent = menuToggle.textContent.trim() === "☰" ? "✖" : "☰";
+    }
+  });
+
+  // Quand on clique sur un lien du menu (mobile), on ferme le menu
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+        if (icon) { icon.classList.add("fa-bars"); icon.classList.remove("fa-times"); }
+        else { menuToggle.textContent = "☰"; }
+      }
+    });
+  });
+
+  // Si on redimensionne la fenêtre au dessus du breakpoint, on s'assure que le menu est ouvert en permanence (ou fermé selon ton choix)
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      nav.classList.remove("active"); // on retire la classe mobile quand on revient au desktop
+      if (icon) { icon.classList.add("fa-bars"); icon.classList.remove("fa-times"); }
+      else { menuToggle.textContent = "☰"; }
+    }
+  });
+});
+
+
+
+
+
+</script>
+
+</html>
